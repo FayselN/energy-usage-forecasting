@@ -4,6 +4,24 @@
 **Date:** December 2025  
 
 ---
+## Table of Contents
+
+1. [Overview](#overview)
+2. [Data Understanding](#1-data-understanding)
+3. [Data Preparation](#2-data-preparation)
+4. [Feature Engineering](#3-feature-engineering)
+5. [Modeling](#4-modeling)
+6. [Hyperparameter Tuning](#5-hyperparameter-tuning)
+7. [Evaluation & Error Analysis](#6-evaluation--error-analysis)
+8. [Deployment](#7-deployment)
+9. [Results](#8-results)
+10. [Skills Demonstrated](#9-skills-demonstrated)
+11. [Limitations & Future Work](#10-limitations--future-work)
+12. [Setup & Usage Instructions](#12-setup--usage-instructions)
+13. [How It Works](#13-how-it-works)
+14. [Contributing](#14-contributing)
+15. [License](#15-license)
+
 
 ## Overview
 
@@ -29,6 +47,7 @@ The final model (XGBoost) achieves **RMSE ≈ 0.33**, outperforming Prophet and 
 | Runtime & Model Stability | — |
 
 ---
+
 
 ## 1. Data Understanding
 
@@ -216,20 +235,20 @@ energy-usage-forecasting/
 └── LICENSE
 ```
 ---
-## 🛠️ Setup & Usage Instructions
+## 12. Setup & Usage Instructions
 
 
 ---
-## 📈 How It Works
+## 13. How It Works
 
 
 
 ---
-## 🤝 Contributing
+## 14. Contributing
 
 
 ---
-## 📄 License
+## 15. License
 This project is licensed under the MIT License
 
 ---
