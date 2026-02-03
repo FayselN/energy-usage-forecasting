@@ -236,16 +236,129 @@ energy-usage-forecasting/
 ```
 ---
 ## 12. Setup & Usage Instructions
+Follow these steps to run the Energy Usage Forecasting app locally:
+
+**Step 1: Clone the Repository**
+```
+git clone https://github.com/FayselN/energy-usage-forecasting.git
+cd energy-usage-forecasting
+```
+**Step 2: Create a Python Virtual Environment**
+
+```python -m venv env
+```
+**Step 3: Activate the Virtual Environment**
+
+Windows (PowerShell):
+```
+.\env\Scripts\Activate
+```
+**Step 4: Install Dependencies**
+```
+pip install -r requirements.txt
+```
+**Step 5: Verify Required Files**
+
+Processed data: data/processed/df_hourly.csv
+
+Trained model: src/xgb_model1.json
+
+**Step 6: Run the Streamlit App**
+```
+streamlit run app/app.py
+```
+**Step 7: Using the App**
+
+* Set the forecast horizon in the sidebar (default: 168 hours / 7 days).
+
+* Click “Predict next 7 days (168h)” → forecasts are displayed as charts.
+
+* Download the forecast CSV using the “Download forecast CSV” button.
+
+**Step 8: Stop the App**
+
+* Press Ctrl + C in the terminal.
+
+Note: Only processed data and model files are required. Large raw data (data/raw/household_power_consumption.txt) is not included in the repository.
 
 
 ---
 ## 13. How It Works
+The app forecasts energy usage using a recursive XGBoost model with hourly data:
 
+**1. Data Preprocessing**
+
+* Raw energy data is cleaned, missing values handled, and aggregated to hourly usage.
+
+* Time-based features are created (hour, day, weekday, month, weekend flag).
+
+* Lag and rolling statistics features (lag1, lag24, lag168, rolling mean/std) are added.
+
+**2. Modeling**
+
+* XGBoost is trained on historical energy usage using engineered features.
+
+* Recursive forecasting predicts future values hour-by-hour, using previous predictions as input for the next hour.
+
+**3. Forecast Visualization**
+
+* Streamlit displays a line chart of forecasted energy usage.
+
+* Users can download the forecast for further analysis.
+
+**4. Portfolio Ready**
+
+* Includes notebooks showing EDA, modeling, hyperparameter tuning, and evaluation.
+
+* Interactive dashboard demonstrates ML workflow and forecasting performance.
 
 
 ---
 ## 14. Contributing
+Contributions are welcome and appreciated.
 
+If you would like to contribute to this project, please follow these steps:
+
+**1. Fork the repository**
+
+* Click the Fork button on GitHub.
+
+**2. Clone your fork**
+```
+git clone https://github.com/your-username/energy-usage-forecasting.git
+cd energy-usage-forecasting
+```
+**3.Make your changes**
+
+* Improve models or feature engineering
+
+* Enhance visualizations or Streamlit UI
+
+* Optimize preprocessing or forecasting logic
+
+* Add tests or documentation
+
+**4. Commit your changes**
+```
+git commit -m "Add meaningful commit message"
+```
+**5. Push to your fork**
+```
+git push origin feature/your-feature-name
+```
+**6.Open a Pull Request**
+
+   * Describe clearly what you changed and why.
+
+Guidelines
+
+* Keep code clean and readable.
+
+* Follow the existing project structure.
+
+* Ensure the Streamlit app runs successfully before submitting.
+
+* Avoid committing large raw datasets or sensitive files.
 
 ---
 ## 15. License
